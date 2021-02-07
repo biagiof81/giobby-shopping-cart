@@ -16,8 +16,8 @@ To get started, please complete the following steps:
 For input 1 execute in url browser
 GET http://localhost:8080/carts/1
 
-For input2
+For input 2
 GET http://localhost:8080/carts/2
 
-for input3
+For input 3
 GET http://localhost:8080/carts/3
