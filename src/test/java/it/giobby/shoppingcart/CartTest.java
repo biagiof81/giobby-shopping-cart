@@ -39,6 +39,6 @@ public class CartTest {
 		
 		assertEquals(new BigDecimal("0.79"), new BigDecimal(cart.getTotalTaxes()).setScale(2, RoundingMode.FLOOR));
 		
-		assertEquals(new BigDecimal("20.60"),new BigDecimal(cart.getTotal()).setScale(2, RoundingMode.FLOOR));
+		assertEquals(new BigDecimal("20.57"),new BigDecimal(cart.getTotal()).setScale(2, RoundingMode.FLOOR));
 	}
 }

@@ -1,8 +1,9 @@
-Shopping cart nr. 2
-2 cokes | 4.60 â‚¬
-1 knitwear | 33 â‚¬
-3 books | 37.02 â‚¬
+Shopping cart nr. 3
+1 cake | 42.50 €
+1 book | 15.74 €
+7 t-shirts | 37.80 €
+1 book | 12.28 €
 1 coupon added | GIFT5
 
-Total taxes: 11.14 â‚¬
-Total: 85.76 â‚¬
+Total taxes: 12.82 €
+Total: 121.14 €
