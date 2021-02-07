@@ -28,17 +28,16 @@ public class CartTest {
 		Product product1 = new Product();
 		
 		product1.setPrice(9.9);
-		product1.setTaxRate(0.04);
 		
 		cartItem.setProduct(product1);
 		
-		
+		cartItem.setTaxRate(0.04);
 		cartItem.setQuantity(2);
 		cart.addLineItem(cartItem);
 		
 		assertNotNull(cart.getLineItems());
 		
-		assertEquals(new BigDecimal("0.80"), new BigDecimal(cart.getTotalTaxes()).setScale(2, RoundingMode.FLOOR));
+		assertEquals(new BigDecimal("0.79"), new BigDecimal(cart.getTotalTaxes()).setScale(2, RoundingMode.FLOOR));
 		
 		assertEquals(new BigDecimal("20.60"),new BigDecimal(cart.getTotal()).setScale(2, RoundingMode.FLOOR));
 	}

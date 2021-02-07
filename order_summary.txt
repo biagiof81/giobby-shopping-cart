@@ -1,0 +1,8 @@
+Shopping cart nr. 2
+2 cokes | 4.60 €
+1 knitwear | 33 €
+3 books | 37.02 €
+1 coupon added | GIFT5
+
+Total taxes: 11.14 €
+Total: 85.76 €

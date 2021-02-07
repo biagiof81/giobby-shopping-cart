@@ -1,5 +1,7 @@
 package it.giobby.shoppingcart.model;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +17,7 @@ public class Cart {
 	
 	private double subCost;
 	
-	private boolean coupon;
+	private boolean couponApplied;
 	
 	public String getNumber() {
 		return number;
@@ -30,7 +32,7 @@ public class Cart {
 	}
 
 	public double getTotal() {
-		return this.subCost+this.totalTaxes;
+		return new BigDecimal(this.subCost+this.totalTaxes).setScale(2,RoundingMode.FLOOR).doubleValue();
 	}
 
 	public void setLineItems(List<CartItem> lineItems) {
@@ -41,15 +43,6 @@ public class Cart {
 		return lineItems;
 	}
 	
-	public boolean getCoupon() {
-		return coupon;
-	}
-
-	public void setCoupon(boolean coupon) {
-		this.coupon = coupon;
-	}
-	
-	
     public double getSubCost() {
 		return subCost;
 	}
@@ -59,8 +52,8 @@ public class Cart {
 	}
 
 	public double calculateSaleTax(CartItem lineItem) {
+		return Math.round(lineItem.getQuantity() * lineItem.getProduct().getPrice() * lineItem.getTaxRate() * 100.0) / 100.0;
         
-        return (float)Math.ceil(lineItem.getQuantity() * lineItem.getProduct().getTaxedValue() / .05f) * .05f;
     }
 
 	//Business method
@@ -70,8 +63,16 @@ public class Cart {
 		
 		this.totalTaxes+= calculateSaleTax(lineItem);
 		
-		this.subCost+=(lineItem.getQuantity()*lineItem.getProduct().getPrice());
+		this.subCost+=  lineItem.getQuantity()*lineItem.getProduct().getPrice();
 		
+	}
+
+	public boolean isCouponApplied() {
+		return couponApplied;
+	}
+
+	public void setCouponApplied(boolean couponApplied) {
+		this.couponApplied = couponApplied;
 	}
 	
 }

@@ -8,6 +8,14 @@ public class CartItem {
 	
 	private Integer quantity;
 	
+	private double taxRate;
+	
+	public double getTaxRate() {
+		return taxRate;
+	}
+	public void setTaxRate(double taxRate) {
+		this.taxRate = taxRate;
+	}
 	public Integer getCartId() {
 		return cartId;
 	}

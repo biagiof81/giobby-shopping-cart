@@ -5,8 +5,8 @@ public class Product {
 	private String type;
 
 	private double price;
-
-	private double taxRate;
+	
+	private double discount;
 
 	public String getType() {
 		return type;
@@ -17,23 +17,21 @@ public class Product {
 	}
 
 	public double getPrice() {
-		return price;
+		return this.price-(this.price*this.discount) ;
 	}
 
 	public void setPrice(double price) {
 		this.price = price;
 	}
 
-	public double getTaxRate() {
-		return taxRate;
+	public double getDiscount() {
+		return discount;
 	}
 
-	public void setTaxRate(double taxRate) {
-		this.taxRate = taxRate;
+	public void setDiscount(double discount) {
+		this.discount = discount;
 	}
+	
+	
 
-	// business method
-	public double getTaxedValue() {
-		return this.price * this.taxRate;
-	}
 }

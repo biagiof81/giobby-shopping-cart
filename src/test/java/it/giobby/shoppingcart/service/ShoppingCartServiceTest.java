@@ -3,8 +3,8 @@ package it.giobby.shoppingcart.service;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-import java.math.BigDecimal;
-import java.math.RoundingMode;
+import java.io.File;
+import java.io.IOException;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -24,14 +24,55 @@ public class ShoppingCartServiceTest {
 	ShoppingCartService shoppingCartService;
 
 	@Test
-	public void shouldGetCartFromFile() throws DataReaderException {
+	public void shouldGetCartInput1() throws DataReaderException {
 
 		Cart cart = shoppingCartService.getCartFromFile(1);
 
 		assertNotNull(cart.getLineItems());
 
-		assertEquals(new BigDecimal("9.50"), new BigDecimal(cart.getTotalTaxes()).setScale(2, RoundingMode.FLOOR));
-		assertEquals(new BigDecimal("60.85"), new BigDecimal(cart.getTotal()).setScale(2, RoundingMode.FLOOR));
+		assertEquals(9.50,cart.getTotalTaxes(),0.0);
+		assertEquals(60.85,cart.getTotal(),0.0);
 
+	}
+	
+	@Test
+	public void shouldGetCartInput2() throws DataReaderException {
+
+		Cart cart = shoppingCartService.getCartFromFile(2);
+
+		assertNotNull(cart.getLineItems());
+
+		assertEquals(11.14,cart.getTotalTaxes(),0.0);
+		assertEquals(85.76,cart.getTotal(),0.0);
+
+	}
+	
+	@Test
+	public void shouldGetCartInput3() throws DataReaderException {
+
+		Cart cart = shoppingCartService.getCartFromFile(3);
+
+		assertNotNull(cart.getLineItems());
+
+		assertEquals(12.82,cart.getTotalTaxes(),0.0);
+		assertEquals(121.14,cart.getTotal(),0.0);
+
+	}
+	
+	@Test(expected = DataReaderException.class)
+	public void shouldGetException() throws DataReaderException {
+
+		Cart cart = shoppingCartService.getCartFromFile(4);
+
+
+	}
+	
+	@Test
+	public void souldGetOrderSummary() throws DataReaderException, IOException {
+		Cart cart = shoppingCartService.getCartFromFile(3);
+
+		File file = shoppingCartService.file(cart);
+		
+		assertNotNull(file);
 	}
 }
