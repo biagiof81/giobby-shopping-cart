@@ -21,6 +21,3 @@ GET http://localhost:8080/carts/2
 
 for input3
 GET http://localhost:8080/carts/3
-
-
-Because lack of time, there is not Rest exception handler, nothing control for input file
